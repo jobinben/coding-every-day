@@ -21,4 +21,37 @@ const combineHelp = (n, k, startIndex) => {
     }
 }
 
-combine(n, k)
+// combine(n, k)
+
+let nums = [1, 2, 3]
+
+const permute = (nums) => {
+    let res = [], path = []
+
+    const permuteHelp = (n, k, used) => {
+        if (path.length === k) {
+            res.push([...path])
+            console.log('path: ', path)
+            return
+        }
+        for (let i = 0; i < k; i++) {
+            if (used[i]) continue;
+            path.push(n[i])
+            console.log('push : ', path)
+            used[i] = true
+            console.log('used: ', used)
+            permuteHelp(n, k, used)
+            path.pop()
+            console.log('pop : ', path)
+            used[i] = false
+            console.log('used: ', used)
+
+        }
+    }
+
+    permuteHelp(nums, nums.length, [])
+
+    console.log(res)
+}
+
+permute(nums)
