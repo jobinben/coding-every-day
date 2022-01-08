@@ -54,4 +54,31 @@ const permute = (nums) => {
     console.log(res)
 }
 
-permute(nums)
+// permute(nums)
+
+let S = "a1b2"
+
+const letterCasePermutation = (S) => {
+    let res = [], n = S.length
+    console.log('n: ', n)
+    const permutationHelp = (i, temp) => {
+        console.log(temp)
+        if(i === n) {
+            res.push(temp)
+            return
+        }
+        
+        if(S[i] >= 'a' && S[i] <= 'z') {
+            permutationHelp(i + 1, temp + S[i].toLowerCase())
+            permutationHelp(i + 1, temp + S[i].toUpperCase())
+
+        } else {
+            permutationHelp(i + 1, temp + S[i])
+        }
+    }
+    permutationHelp(0, '')
+    console.log(res)
+    
+}
+
+letterCasePermutation(S)
