@@ -34,8 +34,9 @@ var searchInsert = function (nums, target) {
     let left = 0,
         right = nums.length - 1,
         ans = nums.length
+    let mid
     while (left <= right) {
-        let mid = left + ((right - left) >> 1)
+        mid = left + ((right - left) >> 1)
         if (target <= nums[mid]) {
             ans = mid
             right = mid - 1
@@ -43,6 +44,7 @@ var searchInsert = function (nums, target) {
             left = mid + 1
         }
     }
+    console.log('mid: ', mid)
     return ans
 
 };
@@ -52,3 +54,24 @@ target = 4
 
 res = searchInsert(nums, target)
 console.log(res)
+
+const searchInsert02 = (nums, target) => {
+    let left = 0, right = nums.length - 1
+    let insertIndex = nums.length
+    while (left <= right) {
+        let mid = left + ((right - left) >> 1)
+        if (nums[mid] === target) {
+            return mid
+        } else if (nums[mid] < target) {
+            console.log('left mid: ', mid)
+            left = mid + 1
+        } else if (nums[mid] > target) {
+            console.log('right mid : ', mid)
+            insertIndex = mid
+            right = mid - 1
+        }
+    }
+    return insertIndex
+}
+
+searchInsert02(nums, target)
