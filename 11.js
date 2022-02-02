@@ -21,7 +21,7 @@ const combineHelp = (n, k, startIndex) => {
     }
 }
 
-// combine(n, k)
+combine(n, k)
 
 let nums = [1, 2, 3]
 
