@@ -22,11 +22,10 @@ const getIntersectionNode = (headA, headB) => {
     //     [curA, curB] = [curB, curA] 
     //     [aLen, bLen] = [bLen, aLen]  
     // }
+    // 加上分号可以解决上面的问题
     if (aLen < bLen) {
-        [curA, curB] = [curB, curA]
-    }
-    if (aLen < bLen) {
-        [aLen, bLen] = [bLen, aLen]
+        [curA, curB] = [curB, curA];
+        [aLen, bLen] = [bLen, aLen];
     }
 
     let len = aLen - bLen
